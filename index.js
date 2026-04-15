@@ -3,24 +3,24 @@ const app = express(); //iniciando o express
 
 //criando a rota inicial
 app.get("/", function(req,res){
-    res.send("<h1>Bem vindo ao meu site!</h1>");
+    res.send("<h1>Página inicial</h1>");
 })
 
 //rota do cadastro de produtos
 app.get("/produtos", function(req,res){
-    res.send("<h1>Lista de Produtos!</h1>");
+    res.send("<h1>Lista vazia</h1>");
 })
 
 //rota com parametro 
 app.get("/consulta/:parametro", function(req,res){
     //req --> dados enviados pelo cliente
     //res --> resposta enviada pelo servidor de volta ao cliente
-    res.send("retorno consulta:" + req.params.parametro);
+    res.send("<h3>retorno consulta: " + req.params.parametro + "</h3>");
 })
 
 
 //rota com parametro opcional
-app.get("/cadastro/{:nome}", function(req,res){
+app.get("/cadastro/:nome", function(req,res){
     //req --> dados enviados pelo cliente
     var nome = req.params.nome;
     if (nome){
@@ -32,7 +32,7 @@ app.get("/cadastro/{:nome}", function(req,res){
 })
 
 
-app.listen(process.env.PORT ?? 3000,function(erro){  // cria a aplicação na porta 4000
+app.listen(process.env.PORT ?? 4000,function(erro){  // cria a aplicação na porta 4000
     if (erro){
         console.log("Erro ao Iniciar.");
     }else{
