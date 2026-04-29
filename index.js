@@ -35,7 +35,7 @@ app.get("/cadastro/:nome", function(req,res){
     //req --> dados enviados pelo cliente
     var nome = req.params.nome;
     if (nome){
-        res.send("<h1>Carro " + nome + " adcionado!</h1>");
+        res.send("<h2>Produto" + nome + " adcionado!</h2>");
     }else{
         res.send("Carro adicionado com sucesso");
     }
