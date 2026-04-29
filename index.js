@@ -3,19 +3,30 @@ const app = express(); //iniciando o express
 
 //criando a rota inicial
 app.get("/", function(req,res){
-    res.send("<h1>Página inicial</h1>");
+    res.send(`
+
+        <html>
+            <head>
+                <title>Home Page</title>
+            <head>
+            <body>
+                <h1>Seja bem vindo à página principal</h1>
+                <p>Teste as outras rotas!</p>
+            </body>
+        </html>
+    `);
 })
 
 //rota do cadastro de produtos
 app.get("/produtos", function(req,res){
-    res.send("<h1>Lista vazia</h1>");
+    res.send("<h1>Ainda não há nada aqui!</h1>");
 })
 
 //rota com parametro 
-app.get("/consulta/:parametro", function(req,res){
+app.get("/consulta/:elemento", function(req,res){
     //req --> dados enviados pelo cliente
     //res --> resposta enviada pelo servidor de volta ao cliente
-    res.send("<h3>retorno consulta: " + req.params.parametro + "</h3>");
+    res.send("<h3>retorno consulta: " + req.params.elemento + "</h3>");
 })
 
 
@@ -26,7 +37,7 @@ app.get("/cadastro/:nome", function(req,res){
     if (nome){
         res.send("<h1>produto " + nome + " criado!</h1>");
     }else{
-        res.send("produto criado!");
+        res.send("produto criado com sucesso");
     }
     
 })
