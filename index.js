@@ -18,7 +18,7 @@ app.get("/", function(req,res){
 })
 
 //rota do cadastro de produtos
-app.get("/produtos", function(req,res){
+app.get("/carros", function(req,res){
     res.send("<h1>Ainda não há nada aqui!</h1>");
 })
 
@@ -26,7 +26,7 @@ app.get("/produtos", function(req,res){
 app.get("/consulta/:elemento", function(req,res){
     //req --> dados enviados pelo cliente
     //res --> resposta enviada pelo servidor de volta ao cliente
-    res.send("<h3>retorno consulta: " + req.params.elemento + "</h3>");
+    res.send("<h2>Retorno da sua consulta: </h2>"+"<h3>" + req.params.elemento + "</h3>");
 })
 
 
@@ -35,9 +35,9 @@ app.get("/cadastro/:nome", function(req,res){
     //req --> dados enviados pelo cliente
     var nome = req.params.nome;
     if (nome){
-        res.send("<h1>produto " + nome + " criado!</h1>");
+        res.send("<h1>Carro " + nome + " adcionado!</h1>");
     }else{
-        res.send("produto criado com sucesso");
+        res.send("Carro adicionado com sucesso");
     }
     
 })
@@ -50,4 +50,3 @@ app.listen(process.env.PORT ?? 4000,function(erro){  // cria a aplicação na po
         console.log("Servidor Iniciado.");
     }
 })
-
